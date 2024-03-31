@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "releasehub-f4d15"
+  },
+  "targets": {
+    "releasehub-f4d15": {
+      "hosting": {
+        "release-hub": [
+          "releasehub-shp"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
