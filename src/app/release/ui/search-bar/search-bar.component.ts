@@ -19,11 +19,11 @@ import { RouterLink } from '@angular/router';
       <input
         type="text"
         placeholder="Search releases"
-        class="w-full p-3 rounded-md text-sm bg-transparent border-gray-500 border hover:border-transparent hover:gradient-border "
+        class="w-full p-3 rounded-md text-sm bg-transparent border-gray-500 border hover:border-2 hover:border-gray-200 "
         [formControl]="control"
       />
       <a
-        class="text-sm flex text-nowrap items-center gap-x-2 hover:text-gray-300 transition-[color] ease-in-out duration-200 p-4 cursor-pointer"
+        class="text-sm flex px-2 py-2 m-auto rounded-md text-nowrap items-center gap-x-2 hover:text-gray-300 transition-[color] ease-in-out duration-200 p-4 cursor-pointer hover:bg-gradient-to-r from-red-500 to-pink-500 to-purple-500 to-blue-700"
         routerLink="/create"
       >
         <app-icon-plus class="size-4" />

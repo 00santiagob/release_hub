@@ -13,7 +13,7 @@ import { of } from 'rxjs';
   template: `
     <div class="px-4 py-2 xl:px-0 w-full max-w-[1200px] m-auto">
       <app-search-bar (changeQuery)="changeQuery($event)" />
-      <section class="grid grid-cols-3 gap-8 mt-8">
+      <section class="grid grid-cols-1 gap-4 mt-8">
         @for (release of releases$ | async; track release.id) {
           <app-card-release
             [release]="release"
