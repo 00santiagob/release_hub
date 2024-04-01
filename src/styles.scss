@@ -3,3 +3,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-black;
+}
+
+.angular-logo {
+  max-width: 9.2rem;
+}
+
+.logo {
+  max-width: 12rem;
+}
+
+.gradient-border {
+  background-image: linear-gradient(to right, red, pink, purple);
+}

@@ -1,9 +1,12 @@
 {
-  "hosting": [
-    {
-      "target": "release-hub",
-      "source": ".",
-      "frameworksBackend": {}
-    }
-  ]
+  "hosting":{
+    "public": "./dist/release_hub/browser/",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }
