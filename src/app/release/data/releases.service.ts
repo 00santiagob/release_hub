@@ -56,11 +56,10 @@ export class ReleasesService {
       // Verificar si el título o la versión contienen la cadena de búsqueda
       const titleMatch = release.title.toLowerCase().includes(queryString.toLowerCase());
       const versionMatch = release.version.toLowerCase().includes(queryString.toLowerCase());
-      // const platformMatch = release.platform
-      //   .map(platform => platform.toLowerCase())
-      //   .includes(queryString.toLowerCase());
-      // if (titleMatch || versionMatch || platformMatch) {
-      if (titleMatch || versionMatch) {
+      const platformMatch = release.platform
+        .map(platform => platform.toLowerCase())
+        .includes(queryString.toLowerCase());
+      if (titleMatch || versionMatch || platformMatch) {
         releases = [...releases, { id: doc.id, ...doc.data() } as Release];
       }
     });
