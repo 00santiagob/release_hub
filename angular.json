@@ -108,12 +108,12 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "release-hub:build:production",
-              "serveTarget": "release-hub:serve:production"
+              "buildTarget": "release_hub:build:production",
+              "serveTarget": "release_hub:serve:production"
             },
             "development": {
-              "buildTarget": "release-hub:build:development",
-              "serveTarget": "release-hub:serve:development"
+              "buildTarget": "release_hub:build:development",
+              "serveTarget": "release_hub:serve:development"
             }
           },
           "defaultConfiguration": "production"
