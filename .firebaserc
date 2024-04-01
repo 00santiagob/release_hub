@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "releasehub-f4d15"
+    "release_hub": "releasehub-f4d15"
   },
   "targets": {
     "releasehub-f4d15": {

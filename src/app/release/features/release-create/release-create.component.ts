@@ -12,10 +12,14 @@ import { IconBack } from '../../../shared/ui/icons/back';
 import { ReleasesService } from '../../data/releases.service';
 import { ReleaseForm } from '../../shared/interfaces/releases.interface';
 
+import { Platform } from '../../shared/interfaces/releases.interface';
+
+const versionPattern = /^(0|[1-9]\d*)(\.(0|[1-9]\d*)){2}$/;
+
 export interface CreateForm {
   title: FormControl<string>;
   version: FormControl<string>;
-  platform: FormControl<string[]>;
+  platform: FormControl<Platform[]>;
   description?: FormControl<string | undefined>;
   releaseDate: FormControl<Date>;
   features: FormControl<string[]>;
@@ -58,13 +62,20 @@ export interface CreateForm {
           <label for="platform" class="block mb-2 text-sm font-medium"
             >Platform</label
           >
-          <input
-            type="text"
+          <select
             id="platform"
             class="w-full p-3 rounded-md text-sm bg-transparent border-gray-500 border"
-            placeholder="Web"
             formControlName="platform"
-          />
+            multiple
+          >
+            <option value="Android">Android</option>
+            <option value="ChromeOS">ChromeOS</option>
+            <option value="iOS">iOS</option>
+            <option value="Linux">Linux</option>
+            <option value="Mac">Mac</option>
+            <option value="Web">Web</option>
+            <option value="Windows">Windows</option>
+          </select>
         </div>
         <div class="mb-8">
           <label for="description" class="block mb-2 text-sm font-medium"
@@ -108,6 +119,7 @@ export interface CreateForm {
   imports: [ReactiveFormsModule, IconRocket, IconBack, RouterLink],
 })
 export default class ReleaseCreateComponent {
+[x: string]: any;
   private _formBuilder = inject(FormBuilder).nonNullable;
 
   private _router = inject(Router);
@@ -127,7 +139,9 @@ export default class ReleaseCreateComponent {
 
   form = this._formBuilder.group<CreateForm>({
     title: this._formBuilder.control('', Validators.required),
-    version: this._formBuilder.control('', Validators.required),
+    // version: this._formBuilder.control('', Validators.required),
+    // version: this._formBuilder.control('', [Validators.required]),
+    version: this._formBuilder.control('', [Validators.required, Validators.pattern(versionPattern)]),
     description: this._formBuilder.control(''),
     platform: this._formBuilder.control([]),
     releaseDate: this._formBuilder.control(new Date(), Validators.required),

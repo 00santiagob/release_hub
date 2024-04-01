@@ -67,11 +67,25 @@ export class ReleasesService {
   }
 
   createRelease(release: ReleaseForm) {
-    return addDoc(this._collection, release);
+    var doc = addDoc(this._collection, release)
+    .then(response => {
+      console.log(response);
+      console.log(response.id);
+      console.log(response.path);
+    }).catch(error => {
+        console.log(error);
+    });
+    return doc;
   }
 
   updateRelease(id: string, release: ReleaseForm) {
-    return updateDoc(this.document(id), { ...release });
+    var doc = updateDoc(this.document(id), { ...release })
+    .then(doc => {
+      console.log(doc);
+    }).catch(error => {
+        console.log(error);
+    });
+    return doc;
   }
 
   deleteRelease(id: string) {

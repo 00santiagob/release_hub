@@ -2,7 +2,7 @@ export interface Release extends ReleaseForm {
   id: string;
 }
 
-enum Platform {
+export enum Platform {
   ANDROID = "Android",
   CHROMEOS = "ChromeOS",
   IOS = "iOS",
